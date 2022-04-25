@@ -30,8 +30,17 @@ class HomeController extends Controller
 
     }
     public function addarticle(Request $request){
-        
-       return $request;
+           
+        $article = new Articles();
+        $article->title = $request->title;
+        $article->created_by = $request->author;
+        $article->content = $request->content;
+        $article->created_at = date('Y-m-d H:i:s');
+        $article->updated_at = date('Y-m-d H:i:s');
+        $article->save();
+        return($article);
+
+        $article->save();
         
 
 
